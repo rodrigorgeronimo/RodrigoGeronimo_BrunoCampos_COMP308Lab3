@@ -1,0 +1,9 @@
+{
+  "name": "rodrigo-geronimo_bruno-campos_comp308-lab3",
+  "version": "0.0.0",
+  "description": "RodrigoGeronimo_BrunoCampos_COMP308Lab3",
+  "main": "server.js",
+  "author": {
+    "name": "rodri"
+  }
+}
