@@ -29,9 +29,41 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="app\controllers\articles.server.controller.js" />
+    <Compile Include="app\controllers\index.server.controller.js" />
+    <Compile Include="app\controllers\users.server.controller.js" />
+    <Compile Include="app\models\course.server.model.js" />
+    <Compile Include="app\models\student.server.model.js" />
+    <Compile Include="app\routes\articles.server.routes.js" />
+    <Compile Include="app\routes\index.server.routes.js" />
+    <Compile Include="app\routes\users.server.routes.js" />
+    <Compile Include="config\config.js" />
+    <Compile Include="config\env\development.js" />
+    <Compile Include="config\env\production.js" />
+    <Compile Include="config\env\test.js" />
+    <Compile Include="config\express.js" />
+    <Compile Include="config\mongoose.js" />
+    <Compile Include="config\passport.js" />
+    <Compile Include="config\strategies\facebook.js" />
+    <Compile Include="config\strategies\google.js" />
+    <Compile Include="config\strategies\local.js" />
+    <Compile Include="config\strategies\twitter.js" />
     <Compile Include="server.js" />
+    <Content Include="app\views\index.ejs" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="tsconfig.json" />
+    <Content Include="typings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\" />
+    <Folder Include="app\controllers\" />
+    <Folder Include="app\models\" />
+    <Folder Include="app\routes\" />
+    <Folder Include="app\views\" />
+    <Folder Include="config\" />
+    <Folder Include="config\env\" />
+    <Folder Include="config\strategies\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
