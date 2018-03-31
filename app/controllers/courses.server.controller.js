@@ -1,5 +1,5 @@
 ﻿const mongoose = require('mongoose');
-const Article = mongoose.model('Article');
+const Course = mongoose.model('Course');
 //
 function getErrorMessage(err) {
     if (err.errors) {
@@ -13,77 +13,77 @@ function getErrorMessage(err) {
 };
 //
 exports.create = function (req, res) {
-    const article = new Article(req.body);
-    article.creator = req.user;
-    article.save((err) => {
+    const course = new Course(req.body);
+    course.creator = req.student;
+    course.save((err) => {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)
             });
         } else {
-            res.status(200).json(article);
+            res.status(200).json(course);
         }
     });
 };
 //
 exports.list = function (req, res) {
-    Article.find().sort('-created').populate('creator', 'firstName lastName fullName').exec((err, articles) => {
+    Course.find().sort('-created').populate('creator', 'firstName lastName fullName').exec((err, courses) => {
 if (err) {
         return res.status(400).send({
             message: getErrorMessage(err)
         });
     } else {
-        res.status(200).json(articles);
+    res.status(200).json(courses);
     }
 });
 };
 //
-exports.articleByID = function (req, res, next, id) {
-    Article.findById(id).populate('creator', 'firstName lastName fullName').exec((err, article) => {if (err) return next(err);
-if (!article) return next(new Error('Failed to load article '
+exports.courseByID = function (req, res, next, id) {
+    Course.findById(id).populate('creator', 'firstName lastName fullName').exec((err, course) => {if (err) return next(err);
+        if (!course) return next(new Error('Failed to load course '
         + id));
-    req.article = article;
+        req.course = course;
     next();
 });
 };
 //
 exports.read = function (req, res) {
-    res.status(200).json(req.article);
+    res.status(200).json(req.course);
 };
 //
 exports.update = function (req, res) {
-    const article = req.article;
-    article.title = req.body.title;
-    article.content = req.body.content;
-    article.save((err) => {
+    const course = req.course;
+    course.title = req.body.title;
+    course.content = req.body.content;
+    course.save((err) => {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)
             });
         } else {
-            res.status(200).json(article);
+            res.status(200).json(course);
         }
     });
 };
 //
 exports.delete = function (req, res) {
-    const article = req.article;
-    article.remove((err) => {
+    const course = req.course;
+    course.remove((err) => {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)
             });
         } else {
-            res.status(200).json(article);
+            res.status(200).json(course);
         }
     });
 };
-//The hasAuthorization() middleware uses the req.article and req.user objects
-//to verify that the current user is the creator of the current article
+//The hasAuthorization() middleware uses the req.course and req.student objects
+//to verify that the current student is the creator of the current course
 exports.hasAuthorization = function (req, res, next) {
-    if (req.article.creator.id !== req.user.id) {
+    if (req.course.creator.id !== req.student.id) {
         return res.status(403).send({
-            message: 'User is not authorized'
+            message: 'Student is not authorized'
         });
     }
     next();

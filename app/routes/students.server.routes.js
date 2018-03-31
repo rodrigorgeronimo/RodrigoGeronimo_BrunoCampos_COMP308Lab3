@@ -1,17 +1,17 @@
 ﻿// Load the module dependencies
-const users = require('../../app/controllers/users.server.controller');
+const students = require('../../app/controllers/students.server.controller');
 const passport = require('passport');
 
 // Define the routes module' method
 module.exports = function (app) {
     // Set up the 'signup' routes 
-    app.route('/api/auth/signup').post(users.signup);
+    app.route('/api/auth/signup').post(students.signup);
 
     // Set up the 'signin' routes 
-    app.route('/api/auth/signin').post(users.signin);
+    app.route('/api/auth/signin').post(students.signin);
 
     // Set up the 'signout' route
-    app.route('/api/auth/signout').get(users.signout);
+    app.route('/api/auth/signout').get(students.signout);
 
     // Set up the Facebook OAuth routes 
     app.get('/oauth/facebook', passport.authenticate('facebook', {

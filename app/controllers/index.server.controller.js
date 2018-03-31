@@ -1,15 +1,15 @@
 ﻿// Create a new 'render' controller method
 exports.render = function (req, res) {
-    // Set the safe user object 
-    const user = (!req.user) ? null : {
-        _id: req.user.id,
-        firstName: req.user.firstName,
-        lastName: req.user.lastName
+    // Set the safe student object 
+    const student = (!req.student) ? null : {
+        _id: req.student.id,
+        firstName: req.student.firstName,
+        lastName: req.student.lastName
     };
 
-    // Use the 'response' object to render the 'index' view with a 'title' and 'user' properties
+    // Use the 'response' object to render the 'index' view with a 'title' and 'student' properties
     res.render('index', {
         title: 'Hello World',
-        user: JSON.stringify(user)
+        student: JSON.stringify(student)
     });
 };

@@ -3,7 +3,7 @@ const passport = require('passport');
 const url = require('url');
 const TwitterStrategy = require('passport-twitter').Strategy;
 const config = require('../config');
-const users = require('../../app/controllers/users.server.controller');
+const students = require('../../app/controllers/students.server.controller');
 
 // Create the Twitter strategy configuration method
 module.exports = function () {
@@ -29,7 +29,7 @@ module.exports = function () {
         };
 
         // Save the user OAuth profile
-        users.saveOAuthUserProfile(req, providerUserProfile, done);
+        students.saveOAuthUserProfile(req, providerUserProfile, done);
     }
     ));
 };

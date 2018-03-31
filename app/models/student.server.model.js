@@ -5,13 +5,6 @@ const Schema = mongoose.Schema;
 
 // Define a new 'StudentSchema'
 const StudentSchema = new Schema({
-    firstName: String,
-    lastName: String,
-    email: {
-        type: String,
-        // Validate the email format
-        match: [/.+\@.+\..+/, "Please fill a valid email address"]
-    },
     studentNumber: {
         type: String,
         // Set a unique 'studentNumber' index
@@ -30,7 +23,8 @@ const StudentSchema = new Schema({
             'Password should be longer'
         ]
     },
-
+    firstName: String,
+    lastName: String,
     address: {
         type: String
     },
@@ -46,6 +40,11 @@ const StudentSchema = new Schema({
     },
     phoneNumber: {
         type: String
+    },
+    email: {
+        type: String,
+        // Validate the email format
+        match: [/.+\@.+\..+/, "Please fill a valid email address"]
     },
     program: {
         type: String
@@ -99,16 +98,16 @@ StudentSchema.methods.hashPassword = function (password) {
     return crypto.pbkdf2Sync(password, this.salt, 10000, 64, 'sha512').toString('base64');
 };
 
-// Create an instance method for authenticating user
+// Create an instance method for authenticating student
 StudentSchema.methods.authenticate = function (password) {
     return this.password === this.hashPassword(password);
 };
 
-// Configure the 'UserSchema' to use getters and virtuals when transforming to JSON
+// Configure the 'StudentSchema' to use getters and virtuals when transforming to JSON
 StudentSchema.set('toJSON', {
     getters: true,
     virtuals: true
 });
 
-// Create the 'User' model out of the 'UserSchema'
+// Create the 'Student' model out of the 'StudentSchema'
 mongoose.model('Student', StudentSchema);

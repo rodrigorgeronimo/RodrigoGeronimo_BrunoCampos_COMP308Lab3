@@ -3,7 +3,7 @@ const passport = require('passport');
 const url = require('url');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const config = require('../config');
-const users = require('../../app/controllers/users.server.controller');
+const users = require('../../app/controllers/students.server.controller');
 
 // Create the Google strategy configuration method
 module.exports = function () {

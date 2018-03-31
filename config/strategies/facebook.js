@@ -3,7 +3,7 @@ const passport = require('passport');
 const url = require('url');
 const FacebookStrategy = require('passport-facebook').Strategy;
 const config = require('../config');
-const users = require('../../app/controllers/users.server.controller');
+const students = require('../../app/controllers/students.server.controller');
 
 // Create the Facebook strategy configuration method
 module.exports = function () {
@@ -15,13 +15,13 @@ module.exports = function () {
         passReqToCallback: true
     },
         (req, accessToken, refreshToken, profile, done) => {
-            // Set the user's provider data and include tokens
+            // Set the student's provider data and include tokens
             const providerData = profile._json;
             providerData.accessToken = accessToken;
             providerData.refreshToken = refreshToken;
 
-            // Create the user OAuth profile
-            const providerUserProfile = {
+            // Create the student OAuth profile
+            const providerStudentProfile = {
                 firstName: profile.name.givenName,
                 lastName: profile.name.familyName,
                 fullName: profile.displayName,
@@ -33,7 +33,7 @@ module.exports = function () {
             };
 
             // Save the user OAuth profile
-            users.saveOAuthUserProfile(req, providerUserProfile, done);
+            students.saveOAuthStudentProfile(req, providerStudentProfile, done);
         }
     ));
 };
