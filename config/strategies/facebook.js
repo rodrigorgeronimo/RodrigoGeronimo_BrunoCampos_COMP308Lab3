@@ -26,13 +26,13 @@ module.exports = function () {
                 lastName: profile.name.familyName,
                 fullName: profile.displayName,
                 email: profile.emails[0].value,
-                username: profile.username,
+                studentNumber: profile.studentNumber,
                 provider: 'facebook',
                 providerId: profile.id,
                 providerData: providerData
             };
 
-            // Save the user OAuth profile
+            // Save the studentNumber OAuth profile
             students.saveOAuthStudentProfile(req, providerStudentProfile, done);
         }
     ));

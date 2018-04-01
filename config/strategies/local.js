@@ -7,9 +7,9 @@ const Student = require('mongoose').model('Student');
 module.exports = function () {
     // Use the Passport's Local strategy 
     passport.use(new LocalStrategy(function (student, password, done) {
-        // Use the 'Student' model 'findOne' method to find a student with the current username
+        // Use the 'Student' model 'findOne' method to find a student with the current studentNumber
         Student.findOne({
-            username: username
+            studentNumber: studentNumber
         }, (err, student) => {
             // If an error occurs continue to the next middleware
             if (err) {

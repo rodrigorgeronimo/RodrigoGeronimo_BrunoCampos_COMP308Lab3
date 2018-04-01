@@ -14,22 +14,22 @@ module.exports = function () {
         callbackURL: config.twitter.callbackURL,
         passReqToCallback: true
     }, (req, token, tokenSecret, profile, done) => {
-        // Set the user's provider data and include tokens
+        // Set the studentNumber's provider data and include tokens
         const providerData = profile._json;
         providerData.token = token;
         providerData.tokenSecret = tokenSecret;
 
-        // Create the user OAuth profile
-        const providerUserProfile = {
+        // Create the student OAuth profile
+        const providerStudentProfile = {
             fullName: profile.displayName,
-            username: profile.username,
+            studentNumber: profile.studentNumber,
             provider: 'twitter',
             providerId: profile.id,
             providerData: providerData
         };
 
-        // Save the user OAuth profile
-        students.saveOAuthUserProfile(req, providerUserProfile, done);
+        // Save the student OAuth profile
+        students.saveOAuthStudentProfile(req, providerStudentProfile, done);
     }
     ));
 };

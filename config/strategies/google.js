@@ -3,7 +3,7 @@ const passport = require('passport');
 const url = require('url');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const config = require('../config');
-const users = require('../../app/controllers/students.server.controller');
+const students = require('../../app/controllers/students.server.controller');
 
 // Create the Google strategy configuration method
 module.exports = function () {
@@ -15,25 +15,25 @@ module.exports = function () {
         passReqToCallback: true
     },
         (req, accessToken, refreshToken, profile, done) => {
-            // Set the user's provider data and include tokens
+            // Set the student's provider data and include tokens
             const providerData = profile._json;
             providerData.accessToken = accessToken;
             providerData.refreshToken = refreshToken;
 
-            // Create the user OAuth profile
-            const providerUserProfile = {
+            // Create the studentNumber OAuth profile
+            const providerStudentProfile = {
                 firstName: profile.name.givenName,
                 lastName: profile.name.familyName,
                 fullName: profile.displayName,
                 email: profile.emails[0].value,
-                username: profile.username,
+                studentNumber: profile.studentNumber,
                 provider: 'google',
                 providerId: profile.id,
                 providerData: providerData
             };
 
-            // Save the user OAuth profile
-            users.saveOAuthUserProfile(req, providerUserProfile, done);
+            // Save the studentNumber OAuth profile
+            students.saveOAuthStudentProfile(req, providerStudentProfile, done);
         }
     ));
 };

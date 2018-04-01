@@ -93,13 +93,13 @@ exports.saveOAuthStudentProfile = function (req, profile, done) {
         } else {
             // If a student could not be found, create a new student, otherwise, continue to the next middleware
             if (!student) {
-                // Set a possible base username
-                const possibleUsername = profile.username || ((profile.email) ? profile.email.split('@')[0] : '');
+                // Set a possible base studentNumber
+                const possibleStudentNumber = profile.studentNumber || ((profile.email) ? profile.email.split('@')[0] : '');
 
-                // Find a unique available username
-                Student.findUniqueUsername(possibleUsername, null, (availableUsername) => {
-                    // Set the available user name 
-                    profile.username = availableUsername;
+                // Find a unique available studentNumber
+                Student.findUniqueStudentNumber(possibleStudentNumber, null, (availableStudentNumber) => {
+                    // Set the available student Number
+                    profile.studentNumber = availableStudentNumber;
 
                     // Create the student
                     student = new Student(profile);
