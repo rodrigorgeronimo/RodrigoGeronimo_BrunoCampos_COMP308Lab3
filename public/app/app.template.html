@@ -1,0 +1,16 @@
+﻿<div>
+    <div>
+        <label>First Name : </label>
+        <input type="text" [(ngModel)]="student.firstName" />
+    </div>
+    <div>
+        <label>Last Name : </label>
+        <input type="text" [(ngModel)]="student.lastName" />
+    </div>
+    <div>
+        <label>The student full name is: </label>
+        {{student.firstName  + " " + student.lastName}}
+    </div>
+</div>
+
+    
