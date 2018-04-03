@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', './app.component', './sample/sample.component', './about.component', '@angular/router', './app.routes'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', './app.component', './about.component', '@angular/router', './app.routes'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, forms_1, app_component_1, sample_component_1, about_component_1, router_1, app_routes_1;
+    var core_1, platform_browser_1, forms_1, app_component_1, about_component_1, router_1, app_routes_1;
     var AppModule;
     return {
         setters:[
@@ -25,9 +25,6 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
             },
             function (app_component_1_1) {
                 app_component_1 = app_component_1_1;
-            },
-            function (sample_component_1_1) {
-                sample_component_1 = sample_component_1_1;
             },
             function (about_component_1_1) {
                 about_component_1 = about_component_1_1;
@@ -50,7 +47,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
                         ],
                         //declare all components here
                         declarations: [
-                            about_component_1.AboutComponent, sample_component_1.SampleComponent, app_component_1.AppComponent
+                            about_component_1.AboutComponent, app_component_1.AppComponent //SampleComponent
                         ],
                         providers: [],
                         bootstrap: [app_component_1.AppComponent]
