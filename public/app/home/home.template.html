@@ -1,0 +1,19 @@
+﻿<div *ngIf="!user">
+    <div id="container" style="width: 400px;">
+        <a href="/"><img src="assets/img/logo.jpg" width="200" /></a>
+        <h1>Welcome</h1>
+        
+        <a [routerLink]="['/courses']" class="fl"><button>All courses</button></a>
+        <!--<a [routerLink]="['/courses']" class="fl margin-left"><button style="width: 230px;">All courses by student</button></a>-->
+        <a [routerLink]="['/students']" class="fl margin-left"><button>All students</button></a>
+        <!--<a [routerLink]="['/courses']" class="fl margin-left"><button style="width: 230px;">All students by course</button></a>-->
+        
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div *ngIf="!!user">
+    <div style="width: 150px; margin: 25% auto;">
+        <a [routerLink]="['/authentication/signin']"><button>Login</button></a>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+﻿<div id="container">
+    <a href="/"><img src="assets/img/logo.jpg" width="200" /></a>
+    <h1>New Student</h1>
+
+    <form (ngSubmit)="create()" novalidate>
+        <div>
+            <label for="firstName">First Name</label>
+            <input type="text" required [(ngModel)]="student.firstName" name="firstName">
+
+            <label for="lastName">Last Name</label>
+            <input type="text" required [(ngModel)]="student.lastName" name="lastName">
+
+            <label for="studentNumber">Student Number</label>
+            <input type="text" required [(ngModel)]="student.studentNumber" name="studentNumber">
+
+            <label for="password">Password</label>
+            <input type="password" required [(ngModel)]="student.password" name="password">
+
+            <label for="address">Address</label>
+            <input type="text" required [(ngModel)]="student.address" name="address">
+
+            <label for="city">City</label>
+            <input type="text" required [(ngModel)]="student.city" name="city">
+
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" required [(ngModel)]="student.phoneNumber" name="phoneNumber">
+
+            <label for="email">Email</label>
+            <input type="text" required [(ngModel)]="student.email" name="email">
+
+            <label for="program">Program</label>
+            <input type="text" required [(ngModel)]="student.program" name="program">
+        </div>
+        <div>
+            <a class="fl" [routerLink]="['/students']"><button>Back</button></a>
+            <button class="fl margin-left" type="submit">Submit</button>
+    
+            <div class="clear"></div>
+        </div>
+        <strong id="error">{{errorMessage}}</strong>
+    </form>
+</div>
