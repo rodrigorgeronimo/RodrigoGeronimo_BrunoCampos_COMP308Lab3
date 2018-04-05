@@ -1,0 +1,47 @@
+﻿<div *ngIf="!user">
+    <!--
+    <img src="assets/logo.png">
+
+    <h1>Hello {{user.firstName}}</h1>
+    <a href="/api/auth/signout">Signout</a>
+    <ul>
+        <li><a [routerLink]="['/articles']">List Articles</a></li>
+        <li><a [routerLink]="['/articles/create']">Create Article</a></li>
+    </ul>
+    -->
+    
+    <ul>
+        <li><a [routerLink]="['/courses']">List Courses</a></li>
+        <li><a [routerLink]="['/courses/create']">Create Course</a></li>
+    </ul>
+
+    <div id="container" style="width: 500px;">
+        <a href="/"><img src="assets/img/logo.jpg" width="200" /></a>
+        <h1>Welcome</h1>
+        
+        <a class="fl" href="/signup"><button>All courses</button></a>
+        <a class="fl margin-left" href="/signin"><button>All students</button></a>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div *ngIf="!!user">
+    <!--
+    <a [routerLink]="['/authentication/signup']">Signup</a>
+    <a [routerLink]="['/authentication/signin']">Signin</a>
+    -->
+    <div id="container">
+        <a href="/"><img src="assets/img/logo.jpg" width="200" /></a>
+        <h1>Login</h1>
+    
+        <form>
+            <label>Email:</label>
+            <input type="email" size="30" name="email" required />
+            <label>Password:</label>
+            <input type="password" size="30" name="password" required />
+            <a href=""><button class="fl" type="submit">Sign in</button></a>
+            <div class="clear"></div>
+        </form>
+    </div>
+</div>

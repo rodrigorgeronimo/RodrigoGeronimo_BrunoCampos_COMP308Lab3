@@ -1,0 +1,90 @@
+#container {
+    width: 400px;
+    margin: 40px auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    line-height: 25px;
+    color: #444;
+}
+
+h1 {
+    font-size: 27px;
+    margin: 20px 0 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select, textarea, button {
+    padding: 15px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 25px;
+    box-sizing: border-box;
+}
+
+input, textarea {
+    border: 1px solid #DDD;
+    color: #444;
+}
+
+button {
+    width: 140px;
+    background-color: #89ce21;
+    color: white;
+    border: 0;
+}
+
+.spacing {
+    margin-bottom: 25px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.custom-table tr th {
+    background-color: #eee;
+    text-align: left;
+}
+
+.custom-table th, .custom-table td {
+    padding: 15px 20px;
+    border-bottom: 2px solid #f4f4f4;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+a {
+    color: #89ce21;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.floating-link {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    font-weight: bold;
+}
+
+.margin-left {
+    margin-left: 20px;
+}
+
+/***************************************************************/

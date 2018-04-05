@@ -15,8 +15,7 @@
         'core',
         'forms',
         'http',
-        'router',
-        'platform-browser',
+        'router', 'platform-browser',
         'platform-browser-dynamic',
     ];
     ngPackageNames.forEach(function (pkgName) {

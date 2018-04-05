@@ -1,0 +1,15 @@
+﻿<img src="assets/logo.png">
+
+<h1>Courses</h1>
+<ul>
+    <li *ngFor="let course of courses">
+        <a [routerLink]="['/courses', course._id]">{{course.title}}</a>
+        <br>
+        <small>{{course.created}}/{{course.creator.fullName}}</small>
+        <p>{{course.content}}</p>
+    </li>
+</ul>
+<div *ngIf="courses && courses.length === 0">
+    No courses yet, why don't you <a [routerLink]="['/courses/
+create']">create one</a>?
+</div>

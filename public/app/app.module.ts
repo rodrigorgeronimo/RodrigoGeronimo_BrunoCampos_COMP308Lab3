@@ -1,23 +1,31 @@
 ﻿import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; //required for ngModel to work in HTML
-//
+import { RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-//import { SampleComponent } from './sample/sample.component';
-import { AboutComponent } from './about.component';
-//
-import { RouterModule }   from '@angular/router';
-import { AppRoutes }       from './app.routes';
-//
+import { AppRoutes } from './app.routes';
+import { HomeModule } from './home/home.module';
+import { AuthenticationService } from './authentication/authentication.service';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { ArticlesModule } from './articles/articles.module';
+import { CoursesModule } from './courses/courses.module';
 @NgModule({
     imports: [
-        BrowserModule, FormsModule, RouterModule.forRoot(AppRoutes),
+        BrowserModule,
+        HttpModule,
+        AuthenticationModule,
+        HomeModule,
+        ArticlesModule,
+        CoursesModule,
+        RouterModule.forRoot(AppRoutes),
     ],
-    //declare all components here
     declarations: [
-        AboutComponent, AppComponent //SampleComponent
+        AppComponent
     ],
-    providers: [ ],
+    providers: [
+        AuthenticationService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
+

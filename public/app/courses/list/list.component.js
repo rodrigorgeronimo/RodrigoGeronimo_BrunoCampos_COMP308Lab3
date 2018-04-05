@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['@angular/core', '../courses.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,28 +10,37 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var AboutComponent;
+    var core_1, courses_service_1;
+    var ListComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (courses_service_1_1) {
+                courses_service_1 = courses_service_1_1;
             }],
         execute: function() {
-            AboutComponent = (function () {
-                function AboutComponent() {
+            ListComponent = (function () {
+                function ListComponent(_coursesService) {
+                    this._coursesService = _coursesService;
                 }
-                AboutComponent = __decorate([
+                ListComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    this._coursesService.list().subscribe(function (courses) { return _this.courses
+                        = courses; });
+                };
+                ListComponent = __decorate([
                     core_1.Component({
-                        selector: 'app-about',
-                        template: '<h1>About this App</h1>'
+                        selector: 'list',
+                        templateUrl: 'app/courses/list/list.template.html'
                     }), 
-                    __metadata('design:paramtypes', [])
-                ], AboutComponent);
-                return AboutComponent;
+                    __metadata('design:paramtypes', [courses_service_1.CoursesService])
+                ], ListComponent);
+                return ListComponent;
             }());
-            exports_1("AboutComponent", AboutComponent);
+            exports_1("ListComponent", ListComponent);
         }
     }
 });
-//# sourceMappingURL=about.component.js.map
+//# sourceMappingURL=list.component.js.map

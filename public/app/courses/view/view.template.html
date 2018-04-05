@@ -1,0 +1,18 @@
+﻿<img src="assets/logo.png">
+
+<section *ngIf="course && course.creator">
+    <h1>{{course.title}}</h1>
+    <div *ngIf="allowEdit">
+        <a [routerLink]="['/courses', course._id, 'edit']">edit</a>
+        <button (click)="delete()">delete</button>
+    </div>
+    <small>
+        <em>
+            Posted on {{course.created}} by {{
+                course.creator.
+fullName
+            }}
+        </em>
+    </small>
+    <p>{{course.content}}</p>
+</section>
