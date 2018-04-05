@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', '../courses.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../students.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', '../courses.service'], func
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, courses_service_1;
+    var core_1, router_1, students_service_1;
     var EditComponent;
     return {
         setters:[
@@ -20,24 +20,24 @@ System.register(['@angular/core', '@angular/router', '../courses.service'], func
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (courses_service_1_1) {
-                courses_service_1 = courses_service_1_1;
+            function (students_service_1_1) {
+                students_service_1 = students_service_1_1;
             }],
         execute: function() {
             EditComponent = (function () {
-                function EditComponent(_router, _route, _coursesService) {
+                function EditComponent(_router, _route, _studentsService) {
                     this._router = _router;
                     this._route = _route;
-                    this._coursesService = _coursesService;
-                    this.course = {};
+                    this._studentsService = _studentsService;
+                    this.student = {};
                 }
                 EditComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this.paramsObserver = this._route.params.subscribe(function (params) {
-                        var courseId = params['courseId'];
-                        _this._coursesService.read(courseId).subscribe(function (course) {
-                            _this.course = course;
-                        }, function (error) { return _this._router.navigate(['/courses']); });
+                        var studentId = params['studentId'];
+                        _this._studentsService.read(studentId).subscribe(function (student) {
+                            _this.student = student;
+                        }, function (error) { return _this._router.navigate(['/students']); });
                     });
                 };
                 EditComponent.prototype.ngOnDestroy = function () {
@@ -45,16 +45,16 @@ System.register(['@angular/core', '@angular/router', '../courses.service'], func
                 };
                 EditComponent.prototype.update = function () {
                     var _this = this;
-                    this._coursesService.update(this.course).subscribe(function (savedCourse) { return _this._router.navigate(['/courses', savedCourse._id]); }, function (error) { return _this.errorMessage =
+                    this._studentsService.update(this.student).subscribe(function (savedStudent) { return _this._router.navigate(['/students', savedStudent._id]); }, function (error) { return _this.errorMessage =
                         error; });
                 };
                 EditComponent = __decorate([
                     core_1.Component({
                         selector: 'edit',
-                        templateUrl: 'app/courses/edit/edit.template.html',
+                        templateUrl: 'app/students/edit/edit.template.html',
                         styleUrls: ['./assets/css/style.css']
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, courses_service_1.CoursesService])
+                    __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, students_service_1.StudentsService])
                 ], EditComponent);
                 return EditComponent;
             }());

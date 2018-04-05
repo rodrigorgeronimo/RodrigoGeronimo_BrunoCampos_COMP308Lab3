@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { CoursesService } from '../courses.service';
 @Component({
     selector: 'create',
-    templateUrl: 'app/courses/create/create.template.html'
+    templateUrl: 'app/courses/create/create.template.html',
+    styleUrls: ['./assets/css/style.css']
 })
 export class CreateComponent {
     course: any = {};

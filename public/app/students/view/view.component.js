@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', '../../authentication/authentication.service', '../courses.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../authentication/authentication.service', '../students.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', '../../authentication/authe
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, authentication_service_1, courses_service_1;
+    var core_1, router_1, authentication_service_1, students_service_1;
     var ViewComponent;
     return {
         setters:[
@@ -23,17 +23,17 @@ System.register(['@angular/core', '@angular/router', '../../authentication/authe
             function (authentication_service_1_1) {
                 authentication_service_1 = authentication_service_1_1;
             },
-            function (courses_service_1_1) {
-                courses_service_1 = courses_service_1_1;
+            function (students_service_1_1) {
+                students_service_1 = students_service_1_1;
             }],
         execute: function() {
             ViewComponent = (function () {
                 //
-                function ViewComponent(_router, _route, _authenticationService, _coursesService) {
+                function ViewComponent(_router, _route, _authenticationService, _studentsService) {
                     this._router = _router;
                     this._route = _route;
                     this._authenticationService = _authenticationService;
-                    this._coursesService = _coursesService;
+                    this._studentsService = _studentsService;
                     this.allowEdit = false;
                 }
                 //
@@ -41,14 +41,14 @@ System.register(['@angular/core', '@angular/router', '../../authentication/authe
                     var _this = this;
                     this.user = this._authenticationService.user;
                     this.paramsObserver = this._route.params.subscribe(function (params) {
-                        var courseId = params['courseId'];
-                        _this._coursesService
-                            .read(courseId)
-                            .subscribe(function (course) {
-                            _this.course = course;
+                        var studentId = params['studentId'];
+                        _this._studentsService
+                            .read(studentId)
+                            .subscribe(function (student) {
+                            _this.student = student;
                             _this.allowEdit = (_this.user && _this.user._id === _this.
-                                course.creator._id);
-                        }, function (error) { return _this._router.navigate(['/courses']); });
+                                student.creator._id);
+                        }, function (error) { return _this._router.navigate(['/students']); });
                     });
                 };
                 //
@@ -58,16 +58,16 @@ System.register(['@angular/core', '@angular/router', '../../authentication/authe
                 //
                 ViewComponent.prototype.delete = function () {
                     var _this = this;
-                    this._coursesService.delete(this.course._id).
-                        subscribe(function (deletedCourse) { return _this._router.navigate(['/courses']); }, function (error) { return _this.errorMessage = error; });
+                    this._studentsService.delete(this.student._id).
+                        subscribe(function (deletedStudent) { return _this._router.navigate(['/students']); }, function (error) { return _this.errorMessage = error; });
                 };
                 ViewComponent = __decorate([
                     core_1.Component({
                         selector: 'view',
-                        templateUrl: 'app/courses/view/view.template.html',
+                        templateUrl: 'app/students/view/view.template.html',
                         styleUrls: ['./assets/css/style.css']
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, authentication_service_1.AuthenticationService, courses_service_1.CoursesService])
+                    __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, authentication_service_1.AuthenticationService, students_service_1.StudentsService])
                 ], ViewComponent);
                 return ViewComponent;
             }());

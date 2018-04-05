@@ -9,6 +9,7 @@ import { AuthenticationService } from './authentication/authentication.service';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { ArticlesModule } from './articles/articles.module';
 import { CoursesModule } from './courses/courses.module';
+import { StudentsModule } from './students/students.module';
 @NgModule({
     imports: [
         BrowserModule,
@@ -17,6 +18,7 @@ import { CoursesModule } from './courses/courses.module';
         HomeModule,
         ArticlesModule,
         CoursesModule,
+        StudentsModule,
         RouterModule.forRoot(AppRoutes),
     ],
     declarations: [
@@ -28,4 +30,3 @@ import { CoursesModule } from './courses/courses.module';
     bootstrap: [AppComponent]
 })
 export class AppModule { }
-

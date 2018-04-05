@@ -42,7 +42,7 @@ System.register(['@angular/core', '@angular/router', '../authentication.service'
                     core_1.Component({
                         selector: 'signin',
                         templateUrl: 'app/authentication/signin/signin.template.html',
-                        styleUrls: ['app/authentication/signin/signin.template.css']
+                        styleUrls: ['./assets/css/style.css']
                     }), 
                     __metadata('design:paramtypes', [authentication_service_1.AuthenticationService, router_1.Router])
                 ], SigninComponent);

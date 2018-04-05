@@ -1,15 +1,15 @@
 ﻿import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../../authentication/authentication.service';
-import { CoursesService } from '../courses.service';
+import { StudentsService } from '../students.service';
 @Component({
     selector: 'view',
-    templateUrl: 'app/courses/view/view.template.html',
+    templateUrl: 'app/students/view/view.template.html',
     styleUrls: ['./assets/css/style.css']
 })
 export class ViewComponent {
     user: any;
-    course: any;
+    student: any;
     paramsObserver: any;
     errorMessage: string;
     allowEdit: boolean = false;
@@ -17,21 +17,21 @@ export class ViewComponent {
     constructor(private _router: Router,
         private _route: ActivatedRoute,
         private _authenticationService: AuthenticationService,
-        private _coursesService: CoursesService) { }
+        private _studentsService: StudentsService) { }
     //
     ngOnInit() {
         this.user = this._authenticationService.user
         this.paramsObserver = this._route.params.subscribe(params => {
-            let courseId = params['courseId'];
-            this._coursesService
-                .read(courseId)
+            let studentId = params['studentId'];
+            this._studentsService
+                .read(studentId)
                 .subscribe(
-                course => {
-                    this.course = course;
+                    student => {
+                    this.student = student;
                     this.allowEdit = (this.user && this.user._id === this.
-                        course.creator._id);
+                        student.creator._id);
                 },
-                error => this._router.navigate(['/courses'])
+                error => this._router.navigate(['/students'])
                 );
         });
     }
@@ -41,8 +41,8 @@ export class ViewComponent {
     }
     //
     delete() {
-        this._coursesService.delete(this.course._id).
-            subscribe(deletedCourse => this._router.navigate(['/courses']),
+        this._studentsService.delete(this.student._id).
+            subscribe(deletedStudent => this._router.navigate(['/students']),
             error => this.errorMessage = error);
     }
 }

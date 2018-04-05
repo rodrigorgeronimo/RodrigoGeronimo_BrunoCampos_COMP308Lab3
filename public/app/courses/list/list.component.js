@@ -33,7 +33,8 @@ System.register(['@angular/core', '../courses.service'], function(exports_1, con
                 ListComponent = __decorate([
                     core_1.Component({
                         selector: 'list',
-                        templateUrl: 'app/courses/list/list.template.html'
+                        templateUrl: 'app/courses/list/list.template.html',
+                        styleUrls: ['./assets/css/style.css']
                     }), 
                     __metadata('design:paramtypes', [courses_service_1.CoursesService])
                 ], ListComponent);

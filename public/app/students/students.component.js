@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../authentication/authentication.service'], function(exports_1, context_1) {
+System.register(['@angular/core', './students.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,34 +10,32 @@ System.register(['@angular/core', '../authentication/authentication.service'], f
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, authentication_service_1;
-    var HomeComponent;
+    var core_1, students_service_1;
+    var StudentsComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (authentication_service_1_1) {
-                authentication_service_1 = authentication_service_1_1;
+            function (students_service_1_1) {
+                students_service_1 = students_service_1_1;
             }],
         execute: function() {
-            HomeComponent = (function () {
-                function HomeComponent(_authenticationService) {
-                    this._authenticationService = _authenticationService;
-                    this.user = _authenticationService.user;
+            StudentsComponent = (function () {
+                function StudentsComponent() {
                 }
-                HomeComponent = __decorate([
+                StudentsComponent = __decorate([
                     core_1.Component({
-                        selector: 'home',
-                        templateUrl: './app/home/home.template.html',
-                        styleUrls: ['./assets/css/style.css']
+                        selector: 'students',
+                        template: '<router-outlet></router-outlet>',
+                        providers: [students_service_1.StudentsService]
                     }), 
-                    __metadata('design:paramtypes', [authentication_service_1.AuthenticationService])
-                ], HomeComponent);
-                return HomeComponent;
+                    __metadata('design:paramtypes', [])
+                ], StudentsComponent);
+                return StudentsComponent;
             }());
-            exports_1("HomeComponent", HomeComponent);
+            exports_1("StudentsComponent", StudentsComponent);
         }
     }
 });
-//# sourceMappingURL=home.component.js.map
+//# sourceMappingURL=students.component.js.map

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', '../courses.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../students.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', '../courses.service'], func
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, courses_service_1;
+    var core_1, router_1, students_service_1;
     var CreateComponent;
     return {
         setters:[
@@ -20,30 +20,30 @@ System.register(['@angular/core', '@angular/router', '../courses.service'], func
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (courses_service_1_1) {
-                courses_service_1 = courses_service_1_1;
+            function (students_service_1_1) {
+                students_service_1 = students_service_1_1;
             }],
         execute: function() {
             CreateComponent = (function () {
-                function CreateComponent(_router, _coursesService) {
+                function CreateComponent(_router, _studentsService) {
                     this._router = _router;
-                    this._coursesService = _coursesService;
-                    this.course = {};
+                    this._studentsService = _studentsService;
+                    this.student = {};
                 }
                 CreateComponent.prototype.create = function () {
                     var _this = this;
-                    this._coursesService
-                        .create(this.course)
-                        .subscribe(function (createdCourse) { return _this._router.navigate(['/courses',
-                        createdCourse._id]); }, function (error) { return _this.errorMessage = error; });
+                    this._studentsService
+                        .create(this.student)
+                        .subscribe(function (createdStudent) { return _this._router.navigate(['/students',
+                        createdStudent._id]); }, function (error) { return _this.errorMessage = error; });
                 };
                 CreateComponent = __decorate([
                     core_1.Component({
                         selector: 'create',
-                        templateUrl: 'app/courses/create/create.template.html',
+                        templateUrl: 'app/students/create/create.template.html',
                         styleUrls: ['./assets/css/style.css']
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, courses_service_1.CoursesService])
+                    __metadata('design:paramtypes', [router_1.Router, students_service_1.StudentsService])
                 ], CreateComponent);
                 return CreateComponent;
             }());
