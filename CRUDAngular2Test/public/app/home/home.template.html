@@ -1,0 +1,32 @@
+﻿<div *ngIf="student">
+    <img src="assets/logo.png">
+
+    <h1>Hello {{student.firstName}}</h1>
+    <a href="/api/auth/signout">Signout</a>
+    <ul>
+        <li><a [routerLink]="['/articles']">List Articles</a></li>
+        <li><a [routerLink]="['/articles/create']">Create Article</a></li>
+    </ul>
+
+
+
+
+
+    <div id="container" style="width: 400px;">
+        <a href="/"><img src="assets/img/logo.jpg" width="200" /></a>
+        <h1>Hello {{student.firstName}}</h1>
+        
+        <a [routerLink]="['/courses']" class="fl"><button>All courses</button></a>
+        <a [routerLink]="['/students']" class="fl margin-left"><button>All students</button></a>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+<div *ngIf="!student">
+    <div style="width: 150px; margin: 25% auto;">
+        <a [routerLink]="['/authentication/signup']"><button>Register</button></a>
+        <a [routerLink]="['/authentication/signin']"><button>Login</button></a>
+    </div>
+</div>
