@@ -1,0 +1,23 @@
+﻿<div id="container">
+    <a href="/"><img src="assets/img/logo.jpg" width="200" /></a>
+    <h1>Login</h1>
+    
+    <form class =".form" (ngSubmit)="signin()">
+        <div>
+            <label>Student Number:</label>
+            <input type="text" [(ngModel)]="credentials.studentNumber"
+                name="studentNumber">
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" [(ngModel)]="credentials.password"
+                name="password">
+        </div>
+
+        <div>
+            <button type="submit">Login</button>
+        </div>
+        
+        <span>{{errorMessage}}</span>
+    </form>
+</div>
